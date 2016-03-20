@@ -11,12 +11,13 @@ RUN yum -y install \
 # RUN mkdir -p /srv/nagios/plugins
 # RUN mkdir -p /var/nagios
 # RUN mkdir -p /var/nagios/spool
-RUN mkdir -p /var/log/nagios/rw && touch /var/log/nagios/rw/nagios.qh
-# RUN mkdir -p /var/nagios/spool/checkresults
-RUN chown -R nagios: /var/log/nagios
+#RUN mkdir -p /var/log/nagios/rw && touch /var/log/nagios/rw/nagios.qh
+#RUN mkdir -p /var/nagios/spool/checkresults
+#RUN chown -R nagios: /var/log/nagios
+#RUN chown -R nagios: /var/nagios/spool/checkresults
 
 # Trailing slash is important
-COPY objects /etc/nagios/objects/
-COPY plugins /etc/nagios/plugins/
-COPY *.cfg /etc/nagios/
+#COPY objects /etc/nagios/objects/
+#COPY priv /etc/nagios/plugins/
+#COPY *.cfg /etc/nagios/
 CMD ["nagios", "/etc/nagios/nagios.cfg"]
